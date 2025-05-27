@@ -26,7 +26,7 @@ public class Tema {
     @Size(min = 5, max = 100, message = "A descrição deve conter entre 5 e 100 caracteres.")
     private String descricao;
 
-    @OneToMany(fetch = FetchType.LAZY ,mappedBy = "tema", cascade = CascadeType.REMOVE) // Um Tema pode ter várias Postagens
+    @OneToMany(fetch = FetchType.EAGER ,mappedBy = "tema", cascade = CascadeType.REMOVE) // Um Tema pode ter várias Postagens
     @JsonIgnoreProperties("tema") // Evita recursividade ao serializar JSON
     private List<Postagem> postagens;
     
